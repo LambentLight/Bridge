@@ -3,14 +3,14 @@ using CitizenFX.Core.Native;
 using System;
 using System.Collections.Generic;
 
-namespace LambentLight.Bridge
+namespace LambentLight.Bridge.Server
 {
     /// <summary>
     /// The main class for the bridge.
     /// </summary>
-    public class Bridge : BaseScript
+    public class BridgeServer : BaseScript
     {
-        public Bridge()
+        public BridgeServer()
         {
             // Add the commands that we need
             API.RegisterCommand("bridgekickall", new Action<int, List<object>, string>((s, a, r) => CommandKickAll(s, a, r)), false);

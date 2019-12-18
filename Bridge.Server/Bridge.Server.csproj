@@ -7,8 +7,8 @@
     <ProjectGuid>{EC453E27-DDE7-4D49-80AE-00B7433530E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LambentLight.Bridge</RootNamespace>
-    <AssemblyName>LambentLight.Bridge.net</AssemblyName>
+    <RootNamespace>LambentLight.Bridge.Server</RootNamespace>
+    <AssemblyName>LambentLight.Bridge.Server.net</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
