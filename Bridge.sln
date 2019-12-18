@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{EC453E27-DDE7-4D49-80AE-00B7433530E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC453E27-DDE7-4D49-80AE-00B7433530E6}.Debug|x64.ActiveCfg = Debug|x64
+		{EC453E27-DDE7-4D49-80AE-00B7433530E6}.Debug|x64.Build.0 = Debug|x64
+		{EC453E27-DDE7-4D49-80AE-00B7433530E6}.Release|x64.ActiveCfg = Release|x64
+		{EC453E27-DDE7-4D49-80AE-00B7433530E6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85FFED6B-4D22-4B76-83DD-FE87CA30068D}
+	EndGlobalSection
+EndGlobal
