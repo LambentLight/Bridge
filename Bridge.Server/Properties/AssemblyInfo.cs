@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LambentLight.Bridge")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("LambentLight Bridge for Servers")]
+[assembly: AssemblyDescription("Advanced Management Support for LambentLight")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LambentLight.Bridge")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("Hannele Ruiz")]
+[assembly: AssemblyProduct("LambentLight Bridge")]
+[assembly: AssemblyCopyright("© 2019 Hannele Ruiz")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
