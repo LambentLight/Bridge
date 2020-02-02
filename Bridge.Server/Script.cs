@@ -11,8 +11,27 @@ namespace LambentLight.Bridge.Server
     /// </summary>
     public class BridgeServer : BaseScript
     {
+        /// <summary>
+        /// The LambentLight REST API Token.
+        /// </summary>
+        private string Token { get; }
+
         public BridgeServer()
         {
+            // Try to get the token from the parameters
+            string token = API.GetConvar("lambentlight_token", "");
+            // Notify if we found the API Key or not
+            if (token == "")
+            {
+                Debug.WriteLine("Warning: LambentLight Token not found, some Bridge functions have been limited");
+            }
+            else
+            {
+                Debug.WriteLine("Nice! A LambentLight Token was found, all of the Bridge features will be availablle");
+            }
+            // And save it
+            Token = token;
+
             // Add the commands that we need
             API.RegisterCommand("bridgekickall", new Action<int, List<object>, string>((s, a, r) => CommandKickAll(s, a, r)), false);
             API.RegisterCommand("bridgenotify", new Action<int, List<object>, string>((s, a, r) => CommandNotify(s, a, r)), false);
