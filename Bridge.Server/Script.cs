@@ -26,19 +26,17 @@ namespace LambentLight.Bridge.Server
 
         public BridgeServer()
         {
-            // Try to get the token from the parameters
-            string token = API.GetConvar("lambentlight_token", "");
-            // Notify if we found the API Key or not
-            if (token == "")
+            // If API is not available
+            if (!IsApiAvailable)
             {
-                Debug.WriteLine("Warning: LambentLight Token not found, some Bridge functions have been limited");
+                Debug.WriteLine("LambentLight Token or Bind Address not found, Bridge running on Manual Mode");
             }
+            // Otherwise
             else
             {
-                Debug.WriteLine("Nice! A LambentLight Token was found, all of the Bridge features will be availablle");
+                Debug.WriteLine($"LambentLight Token and Bind Address was found ({Bind}), Bridge is fully working");
+                $"{Bind}/bridge/available".WithHeader("Authorization", $"Bearer {Token}").PostStringAsync("");
             }
-            // And save it
-            Token = token;
 
             // Add the commands that we need
             API.RegisterCommand("bridgekickall", new Action<int, List<object>, string>((s, a, r) => CommandKickAll(s, a, r)), false);
