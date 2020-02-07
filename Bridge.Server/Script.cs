@@ -12,9 +12,17 @@ namespace LambentLight.Bridge.Server
     public class BridgeServer : BaseScript
     {
         /// <summary>
-        /// The LambentLight REST API Token.
+        /// The address of the LambentLight API.
         /// </summary>
-        private string Token { get; }
+        private static readonly string Bind = API.GetConvar("lambentlight_bind", "");
+        /// <summary>
+        /// The Auth token for the LambentLight API.
+        /// </summary>
+        private static readonly string Token = API.GetConvar("lambentlight_token", "");
+        /// <summary>
+        /// If the LambentLight API is available.
+        /// </summary>
+        private static bool IsApiAvailable => !(string.IsNullOrWhiteSpace(Bind) || string.IsNullOrWhiteSpace(Token));
 
         public BridgeServer()
         {
