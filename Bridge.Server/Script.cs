@@ -1,7 +1,9 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using Flurl.Http;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace LambentLight.Bridge.Server
@@ -41,6 +43,7 @@ namespace LambentLight.Bridge.Server
             // Add the commands that we need
             API.RegisterCommand("bridgekickall", new Action<int, List<object>, string>((s, a, r) => CommandKickAll(s, a, r)), false);
             API.RegisterCommand("bridgenotify", new Action<int, List<object>, string>((s, a, r) => CommandNotify(s, a, r)), false);
+            API.RegisterCommand("bridgeshutdown", new Action<int, List<object>, string>((s, a, r) => CommandShutdown(s, a, r)), false);
         }
 
         private void CommandKickAll(int source, List<object> args, string raw)
@@ -92,6 +95,28 @@ namespace LambentLight.Bridge.Server
             });
             // And notify the user on the console
             Console.WriteLine($"The message '{builder.ToString()}' was sent to all connected players");
+        }
+
+        private async void CommandShutdown(int source, List<object> args, string raw)
+        {
+            // If the API is not available, notify it and return
+            if (!IsApiAvailable)
+            {
+                Debug.WriteLine("This feature cannot be used because the API is not available");
+                return;
+            }
+
+            // Notify that a shutdown was initiated
+            Debug.WriteLine("Shutdown initiated, Bridge will close the server once is completed");
+
+            // Wait until the server is empty
+            while (Players.Count() != 0)
+            {
+                await Delay(0);
+            }
+
+            // If the server is empty, make the API call
+            await $"{Bind}/bridge/serverempty".WithHeader("Authorization", $"Bearer {Token}").PostStringAsync("");
         }
     }
 }
